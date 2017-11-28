@@ -8,10 +8,10 @@ nfs
 ansible_ssh_user=root
 ansible_python_interpreter=/usr/bin/python3
 
-openshift_master_default_subdomain=apps.uranus
+openshift_master_default_subdomain=apps.openshift
 openshift_deployment_type=origin
 openshift_disable_check=docker_storage,memory_availability
-os_sdn_network_plugin=redhat/openshift-ovs-multitenant
+#os_sdn_network_plugin=redhat/openshift-ovs-multitenant
 openshift_release=v3.6
 
 openshift_hosted_registry_storage_kind=nfs
@@ -22,13 +22,13 @@ openshift_hosted_registry_storage_volume_name=registry
 openshift_hosted_registry_storage_volume_size=10Gi
 
 [masters]
-origin-master
+openshift
 
 [nodes]
-origin-node
+openshift openshift_schedulable=true
 
 [etcd]
-origin-master
+openshift
 
 [nfs]
-origin-master
+openshift
